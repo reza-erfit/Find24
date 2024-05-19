@@ -10,6 +10,7 @@ import gzip
 # Load model yang telah dilatih
 with gzip.open('model.pkl.gz', 'rb') as f:
   model = pickle.load(f)
+st.image('D:/Kuliah/NonAkademik/FindIT/Screenshot 2024-05-20 063504.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
 
 st.title('Form Input Data Pengguna')
 
@@ -181,5 +182,10 @@ if submitted:
     prediksi = model.predict(df)[0]
     interpretasi = interpret_prediction(prediksi, df)
 
-    st.write('Hasil Prediksi (Nomor Promosi):', prediksi)
-    st.write(interpretasi)
+    # Menampilkan hasil prediksi dengan tampilan yang lebih menarik
+    st.markdown(f"""
+        <div style="padding: 10px; border-radius: 10px; background-color: #f0f0f5; border: 1px solid #ccc;">
+            <h4 style="color: #333;">Hasil Prediksi (Nomor Promosi): <span style="color: #0073e6;">{prediksi}</span></h4>
+            <p style="color: #555;">{interpretasi}</p>
+        </div>
+    """, unsafe_allow_html=True)
