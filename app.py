@@ -5,18 +5,11 @@ import pickle
 from datetime import datetime
 from scipy.stats.mstats import winsorize
 import matplotlib.pyplot as plt
-<<<<<<< HEAD
-
-# Load model yang telah dilatih
-with open('D:/Kuliah/NonAkademik/FindIT 2024/model.pkl', 'rb') as f:
-    model = pickle.load(f)
-=======
 import gzip
 
 # Load model yang telah dilatih
 with gzip.open('model.pkl.gz', 'rb') as f:
   model = pickle.load(f)
->>>>>>> 8794d8a (Update:)
 
 st.title('Form Input Data Pengguna')
 
