@@ -106,7 +106,7 @@ def interpret_prediction(pred, df):
         0: "Pelanggan ini diperkirakan tidak mau menerima promosi sama sekali, menunjukkan kurangnya minat atau relevansi promosi.",
         1: f"Promosi pertama berhasil mencapai tingkat penerimaan sebesar 13.5%, efektif untuk pelanggan dengan pendidikan tinggi seperti {education_level}." +
            (f" Ini sangat cocok untuk keluarga dengan anak remaja." if has_teenage_children else ""),
-        2: f"Promosi kedua, dengan penurunan penerimaan menjadi 10.2%, menunjukkan kurangnya daya tarik bagi pelanggan dengan pendapatan tinggi. Promosi ini berhasil menjangkau pelanggan dengan pendapatan bervariasi, termasuk mereka yang pendapatannya jauh di bawah rata-rata ({average_income:,}).",
+        2: f"Promosi kedua, dengan penurunan penerimaan menjadi 10.2%, menunjukkan kurangnya daya tarik bagi pelanggan dengan pendapatan tinggi. Promosi ini berhasil menjangkau pelanggan dengan pendapatan bervariasi, termasuk mereka yang pendapatannya di bawah rata-rata ({average_income:,}).",
         3: f"Promosi ketiga meningkatkan penerimaan menjadi 12.4%, menarik bagi berbagai usia, termasuk keluarga dengan anak remaja." +
            (f" Strategi ini cocok karena melibatkan keluarga dengan anak remaja, sesuai dengan profil customer ini." if has_teenage_children else ""),
         4: f"Promosi keempat mengembalikan tingkat penerimaan ke 13.5%, berhasil menarik kembali keluarga dengan anak remaja dan pelanggan dengan pendapatan tinggi, mirip dengan rata-rata pendapatan ({average_income:,})." +
