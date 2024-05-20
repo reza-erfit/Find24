@@ -2,15 +2,65 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import qrcode
+from PIL import Image
 from datetime import datetime
 from scipy.stats.mstats import winsorize
 import matplotlib.pyplot as plt
 import gzip
+import io
 
 # Load model yang telah dilatih
 with gzip.open('model.pkl.gz', 'rb') as f:
   model = pickle.load(f)
-st.image('D:/Kuliah/NonAkademik/FindIT/Screenshot 2024-05-20 063504.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
+  
+  
+st.image('src\Marketing.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
+
+
+def generate_qr_code(data):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(data)
+    qr.make(fit=True)
+    img = qr.make_image(fill_color="black", back_color="white")
+    buffer = io.BytesIO()
+    img.save(buffer, format="PNG")
+    buffer.seek(0)
+    return buffer
+
+# Membuat QR code
+buffer = generate_qr_code("https://iristentan-findit2024.streamlit.app/")
+
+# Setup sidebar dengan styling yang lebih menarik
+with st.sidebar:
+    # QR Code di bagian atas
+    st.image(buffer, caption='Scan QR Code for Our App', use_column_width=True)
+    
+    # Informasi kompetisi
+    st.markdown("<h2 style='text-align: center; color: #FFA500;'>DATA ANALYTICS COMPETITION</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #FFA500;'>FIND IT! 2024</h3>", unsafe_allow_html=True)
+    
+    # Nama tim
+    st.markdown("<h3 style='text-align: center; color: #0066CC;'>Tim IRIS Tentan</h3>", unsafe_allow_html=True)
+    
+    # Logo Unair
+    st.image("src\Logo UNAIR.png", caption='Universitas Airlangga', use_column_width=True)
+    
+    # Disusun oleh
+    st.markdown("<h4 style='text-align: center;'>Disusun Oleh:</h4>", unsafe_allow_html=True)
+    st.markdown("""
+        <ul style='list-style-position: inside; text-align: left;'>
+            <li>Netri Alia Rahmi</li>
+            <li>Elzandi Irfan Zikra</li>
+            <li>Muhammad Reza Erfit</li>
+        </ul>
+    """, unsafe_allow_html=True)
+
 
 st.title('Form Input Data Pengguna')
 
