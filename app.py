@@ -49,7 +49,7 @@ with st.sidebar:
     st.markdown("<h3 style='text-align: center; color: #0066CC;'>Tim IRIS Tentan</h3>", unsafe_allow_html=True)
     
     # Logo Unair
-    st.image("src/Logo UNAIR.png", caption='Universitas Airlangga', use_column_width=True)
+    st.image("src/Logo UNAIR.png", use_column_width=True)
     
     # Disusun oleh
     st.markdown("<h4 style='text-align: center;'>Disusun Oleh:</h4>", unsafe_allow_html=True)
