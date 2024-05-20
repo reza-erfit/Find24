@@ -15,7 +15,7 @@ with gzip.open('model.pkl.gz', 'rb') as f:
   model = pickle.load(f)
   
   
-st.image('src\Marketing.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
+st.image('src/Marketing.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
 
 
 def generate_qr_code(data):
@@ -49,7 +49,7 @@ with st.sidebar:
     st.markdown("<h3 style='text-align: center; color: #0066CC;'>Tim IRIS Tentan</h3>", unsafe_allow_html=True)
     
     # Logo Unair
-    st.image("src\Logo UNAIR.png", caption='Universitas Airlangga', use_column_width=True)
+    st.image("src/Logo UNAIR.png", caption='Universitas Airlangga', use_column_width=True)
     
     # Disusun oleh
     st.markdown("<h4 style='text-align: center;'>Disusun Oleh:</h4>", unsafe_allow_html=True)
