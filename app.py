@@ -10,13 +10,11 @@ import matplotlib.pyplot as plt
 import gzip
 import io
 
-# Load model yang telah dilatih
+# Load model
 with gzip.open('model.pkl.gz', 'rb') as f:
   model = pickle.load(f)
   
-  
 st.image('src\Marketing.png', caption='✨ Marketing Campaign - iris tentan ✨', use_column_width=True)
-
 
 def generate_qr_code(data):
     qr = qrcode.QRCode(
@@ -66,30 +64,31 @@ st.title('Form Input Data Pengguna')
 
 with st.form("data_form"):
     st.subheader("Identitas Pengguna")
-    tahun_kelahiran = st.number_input('Tahun Kelahiran', min_value=1900, max_value=2015, step=1)
-    tanggal_menjadi_anggota = st.date_input('Tanggal Menjadi Anggota', min_value=datetime(1900, 1, 1))
+    tahun_kelahiran = st.number_input('Tahun Kelahiran', min_value=1900, max_value=2015, step=1, value=1972)
+    tanggal_menjadi_anggota = st.date_input('Tanggal Menjadi Anggota', value=datetime(2012, 11, 8), min_value=datetime(1900, 1, 1))
 
     st.subheader("Data Kategorikal")
-    pendidikan = st.selectbox('Pendidikan', ['SMP', 'SMA', 'Diploma', 'Sarjana', 'Magister', 'Doktor'])
-    status_pernikahan = st.selectbox('Status Pernikahan', ['Sendiri', 'Rencana Menikah', 'Menikah', 'Cerai', 'Cerai Mati'])
+    pendidikan = st.selectbox('Pendidikan', ['SMP', 'SMA', 'Diploma', 'Sarjana', 'Magister', 'Doktor'], index=3)
+    status_pernikahan = st.selectbox('Status Pernikahan', ['Sendiri', 'Rencana Menikah', 'Menikah', 'Cerai', 'Cerai Mati'], index=0)
     keluhan = st.selectbox(
         "Keluhan",
         options=[0, 1],
-        format_func=lambda x: 'Tidak Ada Keluhan' if x == 0 else 'Ada Keluhan'
+        format_func=lambda x: 'Tidak Ada Keluhan' if x == 0 else 'Ada Keluhan',
+        index=0
     )
 
     st.subheader("Data Numerik")
-    pendapatan = st.number_input('Pendapatan', value=50000, format='%d')
-    jumlah_anak_balita = st.slider('Jumlah Anak Balita', min_value=0, max_value=10, value=0)
+    pendapatan = st.number_input('Pendapatan', value=53046000, format='%d')
+    jumlah_anak_balita = st.slider('Jumlah Anak Balita', min_value=0, max_value=10, value=1)
     jumlah_anak_remaja = st.slider('Jumlah Anak Remaja', min_value=0, max_value=10, value=0)
     terakhir_belanja = st.number_input('Terakhir Belanja (hari)', value=0, format='%d')
-    belanja_buah = st.number_input('Belanja Buah', value=0, format='%d')
-    belanja_daging = st.number_input('Belanja Daging', value=0, format='%d')
-    belanja_ikan = st.number_input('Belanja Ikan', value=0, format='%d')
+    belanja_buah = st.number_input('Belanja Buah', value=34391, format='%d')
+    belanja_daging = st.number_input('Belanja Daging', value=48552, format='%d')
+    belanja_ikan = st.number_input('Belanja Ikan', value=36414, format='%d')
     belanja_kue = st.number_input('Belanja Kue', value=0, format='%d')
     pembelian_diskon = st.number_input('Pembelian Diskon', value=0, format='%d')
-    pembelian_web = st.number_input('Pembelian Web', value=0, format='%d')
-    pembelian_toko = st.number_input('Pembelian Toko', value=0, format='%d')
+    pembelian_web = st.number_input('Pembelian Web', value=1, format='%d')
+    pembelian_toko = st.number_input('Pembelian Toko', value=5, format='%d')
 
     submitted = st.form_submit_button("Submit")
     
