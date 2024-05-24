@@ -93,7 +93,7 @@ def interpret_prediction(pred, df):
     if pred == 0:
         return f"""
     <div style="background-color: #ffebee; padding: 20px; border-radius: 10px; border: 2px solid #e57373; margin-top: 10px;">
-        <h2 style="color: #d32f2f;">🚫 Tidak Menerima Promosi:</h2>
+        <h2 style="color: #d32f2f;">🚫 Tidak Menerima Promosi</h2>
         <h4><strong>Strategi:</strong></h4>
         <ol>
             <li><strong>Penyesuaian Waktu Promosi:</strong> Mengingat frekuensi belanja yang bervariasi, promosi dapat dilakukan pada waktu yang lebih bervariasi untuk menjangkau pelanggan yang berbelanja pada waktu yang berbeda.
